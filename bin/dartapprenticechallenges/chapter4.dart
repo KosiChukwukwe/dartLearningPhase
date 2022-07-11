@@ -65,17 +65,14 @@ void main() {
   for (var i = 10; i >= 0; i--) {
     print(i);
   }
+ 
+ //OR 
 
-  var num = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-  num.forEach(print);
+  // var num = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+  // num.forEach(print);
 
-  /// Challenge 7: Print a sequence
-  ///
-  /// Print the sequence 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0.
-
-  print('0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0');
-  // Just kidding. :]
-  // Here's one of several other ways to do it:
+  // Challenge 7: P
+  
   for (var i = 0; i <= 10; i++) {
     print(i / 10);
   }
