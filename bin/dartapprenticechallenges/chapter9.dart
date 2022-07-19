@@ -1,6 +1,6 @@
 void main() {
   /**
-   * Practise for the chapter 9 - creating sub classes
+   * Practise for the chapter 9 - creating sub classes using extends
    */
 
   //the classes for these initialisation is below. lines 19 to 34
@@ -23,13 +23,7 @@ void main() {
   print(jessie is SchoolBandMember);
   print(jessie is! StudentAthlete);
 
-  /**
-   * Practise for the chapter 9 - creating abstract 79 classes
-   */
-
-  //the classes for these initialisation is below. lines 19 to 34
-
-  //First Mini Challenge:
+  //First Mini Challenge on inheritance using extends:
 
   //QUESTION ONE
 
@@ -66,6 +60,20 @@ void main() {
 
   final watermelon = Watermelon('red');
   watermelon.describeColor();
+
+  /**
+   * Practise for the chapter 9 - creating abstract classes and
+   * their resp. sub classes
+   */
+
+  //the classes for these initialisation is below. lines 19 to 34
+
+  Animal platypus = Platypus();
+  print(platypus.isAlive);
+  platypus.eat();
+  platypus.move();
+  //platypus.layEggs();
+  print(platypus);
 }
 
 enum Grade { A, B, C, D, F }
@@ -132,5 +140,21 @@ abstract class Animal {
   @override
   String toString() {
     return "I'm a $runtimeType";
+  }
+}
+
+class Platypus extends Animal {
+  @override
+  void eat() {
+    print('Munch munch');
+  }
+
+  @override
+  void move() {
+    print('Glide glide');
+  }
+
+  void layEggs() {
+    print('Plop plop');
   }
 }
