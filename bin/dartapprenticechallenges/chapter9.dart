@@ -74,6 +74,45 @@ void main() {
   platypus.move();
   //platypus.layEggs();
   print(platypus);
+
+  //Second Mini Challenge on abstract classes using implements:
+
+  //QUESTION ONE
+
+  /**
+   * Create an interface called Bottle and add a method to it called open
+   */
+
+  //Answer: the class is below
+
+  //QUESTION TWO
+
+  /**
+   * Create a concrete class called SodaBottle that implements Bottle and 
+   * prints “Fizz fizz” when open is called.
+   */
+
+  //Answer: the class is below
+
+  //QUESTION THREE
+
+  /**
+   *  Add a factory constructor to Bottle that returns a SodaBottle instance.
+   */
+
+  //Answer: lines 201
+
+  //QUESTION FOUR
+
+  /**
+   * Instantiate SodaBottle by using the Bottle factory constructor 
+   * and call open on the object.
+   */
+
+  // checking to see if the question four gives desired output
+
+  final bottle = Bottle();
+  final sodaBottle = bottle.open();
 }
 
 enum Grade { A, B, C, D, F }
@@ -156,5 +195,17 @@ class Platypus extends Animal {
 
   void layEggs() {
     print('Plop plop');
+  }
+}
+
+abstract class Bottle {
+  factory Bottle() => SodaBottle();
+  void open();
+}
+
+class SodaBottle implements Bottle {
+  @override
+  void open() {
+    print('Fizz fizz');
   }
 }
