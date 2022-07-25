@@ -113,6 +113,36 @@ void main() {
 
   final bottle = Bottle();
   final sodaBottle = bottle.open();
+
+  //Third Mini Challenge on mixins:
+
+  //QUESTION ONE
+
+  /**
+   * Create a class called Calculator with a method called sum that 
+   * prints the sum of any two integers you give it.
+   */
+
+  //Answer: the class is in line 242
+
+  //QUESTION TWO
+
+  /**
+   *  Extract the logic in sum to a mixin called Adder.
+   */
+
+  //QUESTION THREE
+
+  /**
+   *  Use the mixin in Calculator.
+   */
+
+  //Answers to 2 and 3: lines 244 to 248
+
+  // checking to see if the question three gives desired output
+
+  final adder = Calculator();
+  adder.sum(7, 6);
 }
 
 enum Grade { A, B, C, D, F }
@@ -207,5 +237,13 @@ class SodaBottle implements Bottle {
   @override
   void open() {
     print('Fizz fizz');
+  }
+}
+
+class Calculator with Adder {}
+
+mixin Adder {
+  void sum(int a, int b) {
+    print(a + b);
   }
 }
