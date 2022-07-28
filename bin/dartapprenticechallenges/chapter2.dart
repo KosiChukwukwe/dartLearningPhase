@@ -2,7 +2,7 @@ import 'dart:math';
 
 void main() {
   // challenge 1
-  const myAge = 21;
+  const myAge = 22;
   var dogs = 0;
   dogs++;
   print(myAge);

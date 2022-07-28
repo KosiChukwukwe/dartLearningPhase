@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'dart:async';
+import 'dart:isolate';
 
 // Future<void> main() async {
 //   print('Before the future');
@@ -36,28 +37,26 @@ import 'dart:async';
 //   }
 // }
 
-Future<void> main() async {
-  // final file = File('assets/text.txt');
-  // final contents = await file.readAsString();
-  // print(contents);
+// 
 
-  final file = File('assets/text.txt');
-  final stream = file.openRead();
-  await for (var data in stream.transform(utf8.decoder)) {
-    print(data);
-  }
+Future<void> main() async { 
+// 1 
+final receivePort = ReceivePort();
+// 2 
+final isolate = await Isolate.spawn( playHideAndSeekTheLongVersion, 
+// 3 
+receivePort.sendPort, );
+// 4 
+receivePort.listen((message) { 
+  print(message); // 5 
+  receivePort.close(); 
+  isolate.kill(); }); }
 
-  miniExercise();
-
-  final myStream = Stream<int>.periodic(
-    Duration(seconds: 1),
-    (value) => value,
-  ).take(10);
-
-  await for (var value in myStream) {
-    print(value);
-  }
-}
+void playHideAndSeekTheLongVersion(SendPort sendPort) { 
+  var counting = 0; 
+  for (var i = 1; i <= 1000000000; i++) { 
+    counting = i; }
+sendPort.send('$counting! Ready or not, here I come!'); }
 
 class Todo {
   Todo({
